@@ -7,28 +7,28 @@
   <style>
     :root {
       /* Modo Noche (por defecto) */
-      --bg-color: #0f172a;
-      --text-color: #f8fafc;
-      --title-color: #38bdf8;
-      --nav-bg: rgba(15, 23, 42, 0.95);
-      --nav-border: #1e293b;
-      --btn-bg: #1e293b;
-      --btn-text: #f8fafc;
-      --btn-border: #334155;
-      --btn-hover: #334155;
+      --bg-color: #0b0f19;          /* Fondo oscuro profundo */
+      --text-color: #f8fafc;        /* Texto claro */
+      --title-color: #38bdf8;       /* Azul cielo para el título */
+      --nav-bg: #1e293b;            /* Navbar pizarra distintiva que resalta */
+      --nav-border: #334155;        /* Borde divisorio visible */
+      --nav-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+      --btn-bg: #334155;            /* Fondo del botón */
+      --btn-hover: #475569;
+      --btn-border: #475569;
     }
 
     /* Modo Mañana (Claro) */
     body.modo-manana {
-      --bg-color: #f8fafc;
-      --text-color: #0f172a;
-      --title-color: #0284c7;
-      --nav-bg: rgba(255, 255, 255, 0.95);
-      --nav-border: #e2e8f0;
-      --btn-bg: #f1f5f9;
-      --btn-text: #0f172a;
+      --bg-color: #f1f5f9;          /* Fondo suave claro */
+      --text-color: #0f172a;        /* Texto oscuro */
+      --title-color: #0284c7;       /* Azul diurno para el título */
+      --nav-bg: #ffffff;            /* Navbar blanco puro para contraste claro */
+      --nav-border: #cbd5e1;        /* Borde gris definido */
+      --nav-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+      --btn-bg: #e2e8f0;            /* Fondo del botón claro */
+      --btn-hover: #cbd5e1;
       --btn-border: #cbd5e1;
-      --btn-hover: #e2e8f0;
     }
 
     * {
@@ -45,18 +45,18 @@
       transition: background-color 0.3s ease, color 0.3s ease;
     }
 
-    /* Navbar superior */
+    /* Navbar superior con colores distintivos */
     .navbar {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 1.2rem 2.5rem;
+      padding: 1rem 2.5rem;
       background-color: var(--nav-bg);
-      border-bottom: 1px solid var(--nav-border);
+      border-bottom: 2px solid var(--nav-border);
+      box-shadow: var(--nav-shadow);
       position: sticky;
       top: 0;
-      backdrop-filter: blur(8px);
-      transition: background-color 0.3s ease, border-color 0.3s ease;
+      transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
     }
 
     .navbar h1 {
@@ -68,29 +68,28 @@
       transition: color 0.3s ease;
     }
 
-    /* Botón Modo Mañana / Modo Noche */
+    /* Botón circular sin texto (solo ícono) */
     .theme-btn {
+      width: 44px;
+      height: 44px;
       background-color: var(--btn-bg);
-      color: var(--btn-text);
       border: 1px solid var(--btn-border);
-      padding: 0.6rem 1.2rem;
-      font-size: 0.95rem;
-      font-weight: 600;
-      border-radius: 8px;
+      border-radius: 50%;
       cursor: pointer;
       display: inline-flex;
       align-items: center;
-      gap: 0.5rem;
-      transition: all 0.2s ease;
+      justify-content: center;
+      font-size: 1.35rem;
+      transition: transform 0.2s ease, background-color 0.25s ease, border-color 0.25s ease;
     }
 
     .theme-btn:hover {
       background-color: var(--btn-hover);
-      transform: translateY(-1px);
+      transform: scale(1.1);
     }
 
     .theme-btn:active {
-      transform: translateY(0);
+      transform: scale(0.95);
     }
 
     /* Contenido principal */
@@ -104,7 +103,7 @@
   <!-- Barra de navegación superior -->
   <nav class="navbar">
     <h1>Arthur Ravenscroft</h1>
-    <button id="theme-btn" class="theme-btn">☀️ Modo Mañana</button>
+    <button id="theme-btn" class="theme-btn" title="Modo Mañana" aria-label="Cambiar tema">☀️</button>
   </nav>
 
   <!-- Contenedor para el contenido de la página -->
@@ -119,11 +118,15 @@
       // Alterna la clase 'modo-manana' en el body
       document.body.classList.toggle('modo-manana');
 
-      // Actualiza el texto e ícono del botón
+      // Actualiza solo el ícono y tooltip según el modo
       if (document.body.classList.contains('modo-manana')) {
-        themeBtn.textContent = '🌙 Modo Noche';
+        themeBtn.textContent = '🌙';
+        themeBtn.title = 'Modo Noche';
+        themeBtn.setAttribute('aria-label', 'Modo Noche');
       } else {
-        themeBtn.textContent = '☀️ Modo Mañana';
+        themeBtn.textContent = '☀️';
+        themeBtn.title = 'Modo Mañana';
+        themeBtn.setAttribute('aria-label', 'Modo Mañana');
       }
     });
   </script>
