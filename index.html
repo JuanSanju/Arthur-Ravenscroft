@@ -20,6 +20,9 @@
       --card-border: #334155;       /* Borde para contenedores */
       --img-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
       --quote-color: #cbd5e1;       /* Color de la frase en modo noche */
+      --tab-inactive: #94a3b8;      /* Pestaña inactiva noche */
+      --tab-active-bg: rgba(56, 189, 248, 0.08);
+      --tab-hover-bg: rgba(255, 255, 255, 0.04);
     }
 
     /* Modo Mañana (Claro) */
@@ -37,6 +40,9 @@
       --card-border: #cbd5e1;
       --img-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
       --quote-color: #475569;       /* Color de la frase en modo mañana */
+      --tab-inactive: #64748b;      /* Pestaña inactiva mañana */
+      --tab-active-bg: rgba(2, 132, 199, 0.08);
+      --tab-hover-bg: rgba(0, 0, 0, 0.03);
     }
 
     * {
@@ -160,6 +166,100 @@
       min-width: 0;
     }
 
+    /* Panel de información interactivo */
+    .info-panel {
+      background-color: var(--card-bg);
+      border: 2px solid var(--card-border);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: var(--img-shadow);
+      min-height: 480px;
+      display: flex;
+      flex-direction: column;
+      transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    /* Barra superior de pestañas */
+    .tabs-header {
+      display: flex;
+      border-bottom: 2px solid var(--card-border);
+      background-color: rgba(0, 0, 0, 0.12);
+      transition: border-color 0.3s ease, background-color 0.3s ease;
+    }
+
+    body.modo-manana .tabs-header {
+      background-color: rgba(0, 0, 0, 0.02);
+    }
+
+    .tab-btn {
+      padding: 1rem 2.25rem;
+      background: none;
+      border: none;
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--tab-inactive);
+      cursor: pointer;
+      position: relative;
+      font-family: inherit;
+      transition: color 0.2s ease, background-color 0.2s ease;
+    }
+
+    .tab-btn:hover {
+      color: var(--text-color);
+      background-color: var(--tab-hover-bg);
+    }
+
+    .tab-btn.active {
+      color: var(--title-color);
+      background-color: var(--tab-active-bg);
+    }
+
+    .tab-btn.active::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background-color: var(--title-color);
+      border-radius: 3px 3px 0 0;
+    }
+
+    /* Contenedor del contenido de las pestañas */
+    .tab-content-container {
+      padding: 2rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .tab-pane {
+      display: none;
+      flex: 1;
+      animation: fadeIn 0.25s ease;
+    }
+
+    .tab-pane.active {
+      display: block;
+    }
+
+    .tab-placeholder {
+      color: var(--tab-inactive);
+      font-style: italic;
+      font-size: 0.95rem;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(4px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
     /* Responsividad */
     @media (max-width: 768px) {
       .navbar {
@@ -178,6 +278,16 @@
       .profile-sidebar {
         width: 100%;
         max-width: 300px;
+      }
+
+      .profile-details {
+        width: 100%;
+      }
+
+      .tab-btn {
+        flex: 1;
+        text-align: center;
+        padding: 0.9rem 1rem;
       }
     }
   </style>
@@ -203,9 +313,32 @@
         </blockquote>
       </aside>
 
-      <!-- Columna derecha: Detalles de la ficha -->
+      <!-- Columna derecha: Panel interactivo -->
       <section class="profile-details">
-        <!-- Aquí puedes seguir agregando contenido a tu página -->
+        <div class="info-panel">
+          <!-- Pestañas del panel -->
+          <div class="tabs-header" role="tablist">
+            <button class="tab-btn active" role="tab" aria-selected="true" data-tab="tab-principal">
+              Principal
+            </button>
+            <button class="tab-btn" role="tab" aria-selected="false" data-tab="tab-avatar">
+              Avatar
+            </button>
+          </div>
+
+          <!-- Contenido dinámico de las pestañas -->
+          <div class="tab-content-container">
+            <!-- Pestaña Principal (seleccionada por defecto) -->
+            <div id="tab-principal" class="tab-pane active" role="tabpanel">
+              <p class="tab-placeholder">Contenido de Principal (pendiente de agregar)</p>
+            </div>
+
+            <!-- Pestaña Avatar -->
+            <div id="tab-avatar" class="tab-pane" role="tabpanel">
+              <p class="tab-placeholder">Contenido de Avatar (pendiente de agregar)</p>
+            </div>
+          </div>
+        </div>
       </section>
     </div>
   </main>
@@ -227,6 +360,33 @@
         themeBtn.title = 'Modo Mañana';
         themeBtn.setAttribute('aria-label', 'Modo Mañana');
       }
+    });
+
+    // Cambio interactivo entre pestañas (Principal / Avatar)
+    const tabBtns = document.querySelectorAll('.tab-btn');
+    const tabPanes = document.querySelectorAll('.tab-pane');
+
+    tabBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const targetTab = btn.getAttribute('data-tab');
+
+        // Actualizar estado activo en los botones
+        tabBtns.forEach(b => {
+          b.classList.remove('active');
+          b.setAttribute('aria-selected', 'false');
+        });
+        btn.classList.add('active');
+        btn.setAttribute('aria-selected', 'true');
+
+        // Mostrar el panel correspondiente sin recargar la página
+        tabPanes.forEach(pane => {
+          if (pane.id === targetTab) {
+            pane.classList.add('active');
+          } else {
+            pane.classList.remove('active');
+          }
+        });
+      });
     });
   </script>
 
