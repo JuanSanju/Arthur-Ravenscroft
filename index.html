@@ -16,6 +16,9 @@
       --btn-bg: #334155;            /* Fondo del botón */
       --btn-hover: #475569;
       --btn-border: #475569;
+      --card-bg: #1e293b;           /* Fondo de tarjetas */
+      --card-border: #334155;       /* Borde para contenedores */
+      --img-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
     }
 
     /* Modo Mañana (Claro) */
@@ -29,6 +32,9 @@
       --btn-bg: #e2e8f0;            /* Fondo del botón claro */
       --btn-hover: #cbd5e1;
       --btn-border: #cbd5e1;
+      --card-bg: #ffffff;
+      --card-border: #cbd5e1;
+      --img-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
     }
 
     * {
@@ -95,6 +101,65 @@
     /* Contenido principal */
     .content {
       padding: 2.5rem;
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+
+    /* Distribución de la ficha */
+    .profile-layout {
+      display: flex;
+      gap: 2.5rem;
+      align-items: flex-start;
+    }
+
+    /* Columna izquierda: Imagen de perfil */
+    .profile-sidebar {
+      flex: 0 0 300px;
+      width: 300px;
+    }
+
+    .profile-image-card {
+      background-color: var(--card-bg);
+      border: 2px solid var(--card-border);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: var(--img-shadow);
+      transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .profile-image-card img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+      aspect-ratio: 3 / 4;
+    }
+
+    /* Columna derecha: Detalles de la ficha */
+    .profile-details {
+      flex: 1;
+      min-width: 0;
+    }
+
+    /* Responsividad */
+    @media (max-width: 768px) {
+      .navbar {
+        padding: 1rem 1.5rem;
+      }
+
+      .content {
+        padding: 1.5rem;
+      }
+
+      .profile-layout {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .profile-sidebar {
+        width: 100%;
+        max-width: 300px;
+      }
     }
   </style>
 </head>
@@ -108,7 +173,19 @@
 
   <!-- Contenedor para el contenido de la página -->
   <main class="content">
-    <!-- Aquí puedes seguir agregando contenido a tu página -->
+    <div class="profile-layout">
+      <!-- Columna izquierda: Imagen de Arthur -->
+      <aside class="profile-sidebar">
+        <div class="profile-image-card">
+          <img src="Arthur.jfif" alt="Arthur Ravenscroft">
+        </div>
+      </aside>
+
+      <!-- Columna derecha: Detalles de la ficha -->
+      <section class="profile-details">
+        <!-- Aquí puedes seguir agregando contenido a tu página -->
+      </section>
+    </div>
   </main>
 
   <script>
