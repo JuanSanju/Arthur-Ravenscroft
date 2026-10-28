@@ -19,6 +19,7 @@
       --card-bg: #1e293b;           /* Fondo de tarjetas */
       --card-border: #334155;       /* Borde para contenedores */
       --img-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+      --quote-color: #cbd5e1;       /* Color de la frase en modo noche */
     }
 
     /* Modo Mañana (Claro) */
@@ -35,6 +36,7 @@
       --card-bg: #ffffff;
       --card-border: #cbd5e1;
       --img-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+      --quote-color: #475569;       /* Color de la frase en modo mañana */
     }
 
     * {
@@ -135,6 +137,23 @@
       aspect-ratio: 3 / 4;
     }
 
+    /* Frase del personaje */
+    .character-quote {
+      margin-top: 1.25rem;
+      padding: 1rem 1.2rem;
+      background-color: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-left: 4px solid var(--title-color);
+      border-radius: 6px 14px 14px 6px;
+      font-style: italic;
+      font-size: 0.95rem;
+      line-height: 1.6;
+      color: var(--quote-color);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+      text-align: center;
+      transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+    }
+
     /* Columna derecha: Detalles de la ficha */
     .profile-details {
       flex: 1;
@@ -174,11 +193,14 @@
   <!-- Contenedor para el contenido de la página -->
   <main class="content">
     <div class="profile-layout">
-      <!-- Columna izquierda: Imagen de Arthur -->
+      <!-- Columna izquierda: Imagen y frase de Arthur -->
       <aside class="profile-sidebar">
         <div class="profile-image-card">
           <img src="Arthur.jfif" alt="Arthur Ravenscroft">
         </div>
+        <blockquote class="character-quote">
+          “Mientras más conocimiento obtengo, más profundo y temible se vuelve mi miedo a lo desconocido.”
+        </blockquote>
       </aside>
 
       <!-- Columna derecha: Detalles de la ficha -->
