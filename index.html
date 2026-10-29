@@ -279,6 +279,13 @@
       margin: 0;
     }
 
+    .avatar-tag {
+      font-size: 1.2rem;
+      font-weight: 500;
+      color: var(--tab-inactive);
+      margin-left: 0.35rem;
+    }
+
     .character-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -541,7 +548,63 @@
 
             <!-- Pestaña Avatar -->
             <div id="tab-avatar" class="tab-pane" role="tabpanel">
-              <p class="tab-placeholder">Contenido de Avatar (pendiente de agregar)</p>
+              <header class="panel-inner-header">
+                <h2 class="character-name">Arthur Ravenscroft <span class="avatar-tag">(Avatar)</span></h2>
+              </header>
+
+              <div class="character-grid">
+                <!-- Columna Izquierda: Información General y Alias -->
+                <div class="sheet-column">
+                  <!-- Datos destacados -->
+                  <div class="info-card">
+                    <div class="info-row">
+                      <span class="info-label">Edad:</span>
+                      <span class="info-value">25</span>
+                    </div>
+                    <div class="info-row">
+                      <span class="info-label">Vía del Error:</span>
+                      <span class="info-value highlight-text">Secuencia 2</span>
+                    </div>
+                  </div>
+
+                  <!-- Bloque de Alias -->
+                  <div class="section-box">
+                    <h3 class="section-title">Alias</h3>
+                    <ul class="sheet-list">
+                      <li>Archibald <span class="quoted-blank">"&nbsp;&nbsp;"</span></li>
+                      <li>Archibald <span class="quoted-blank">"&nbsp;&nbsp;"</span></li>
+                      <li>El hijo del Sol</li>
+                      <li>La reencarnación del Sol</li>
+                      <li>El Emperador</li>
+                      <li>The Lovers</li>
+                      <li>El cumplidor de deseos</li>
+                      <li>Aquel que es amado por todos</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <!-- Columna Derecha: Familia -->
+                <div class="sheet-column">
+                  <div class="section-box">
+                    <h3 class="section-title">Familia</h3>
+                    <ul class="sheet-list">
+                      <li>Elizabeth Ravenscroft <span class="kinship">(Esposa)</span></li>
+                      <li>Adam Ravenscroft <span class="kinship">(Hijo)</span></li>
+                      <li>Ruby Ravenscroft <span class="kinship">(Hija)</span></li>
+                      <li>Valmont Ravenscroft <span class="kinship">(Hijo)</span></li>
+                      <li>Alcroft Ravenscroft <span class="kinship">(Padre)</span></li>
+                      <li>Lucy Ravenscroft <span class="kinship">(Madre)</span></li>
+                      <li>Paul <span class="quoted-blank">"&nbsp;&nbsp;"</span> <span class="kinship">(Padre)</span></li>
+                      <li>Raymon <span class="quoted-blank">"&nbsp;&nbsp;"</span> <span class="kinship">(Padre)</span></li>
+                      <li>Enma <span class="quoted-blank">"&nbsp;&nbsp;&nbsp;"</span> <span class="kinship">(Madre)</span></li>
+                      <li>Percival Ravenscroft <span class="kinship">(Hermano)</span></li>
+                      <li>Amia <span class="quoted-blank">"&nbsp;&nbsp;"</span> <span class="kinship">(Hermana)</span></li>
+                      <li>Aishia <span class="quoted-blank">"&nbsp;&nbsp;"</span> <span class="kinship">(Hermana)</span></li>
+                      <li>Rose <span class="quoted-blank">"&nbsp;&nbsp;&nbsp;&nbsp;"</span> <span class="kinship">(Hermana)</span></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
