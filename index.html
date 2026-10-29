@@ -423,12 +423,13 @@
       }
 
       .content {
-        padding: 1.5rem;
+        padding: 1.5rem 1rem;
       }
 
       .profile-layout {
         flex-direction: column;
         align-items: center;
+        gap: 1.75rem;
       }
 
       .profile-sidebar {
@@ -440,10 +441,85 @@
         width: 100%;
       }
 
+      .info-panel {
+        min-height: auto;
+      }
+
+      .tab-content-container {
+        padding: 1.25rem 1rem;
+      }
+
       .tab-btn {
         flex: 1;
         text-align: center;
-        padding: 0.9rem 1rem;
+        padding: 0.85rem 0.75rem;
+        font-size: 0.95rem;
+      }
+
+      /* Ajustes para tarjetas de información en móviles */
+      .info-card {
+        padding: 1rem;
+        gap: 0.85rem;
+      }
+
+      /* Distribución vertical: primero la etiqueta y debajo su valor */
+      .info-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.2rem;
+      }
+
+      /* Evitar saltos de línea innecesarios en etiquetas como 'Gran Antiguo' */
+      .info-label {
+        white-space: nowrap;
+        font-size: 0.88rem;
+      }
+
+      /* Permitir que los valores largos ocupen el ancho disponible */
+      .info-value {
+        width: 100%;
+        word-break: normal;
+        overflow-wrap: break-word;
+        font-size: 1.05rem;
+      }
+
+      .section-box {
+        padding: 1.1rem 1rem;
+      }
+
+      .character-name {
+        font-size: 1.55rem;
+      }
+
+      .avatar-tag {
+        font-size: 1rem;
+      }
+
+      .sheet-list li {
+        overflow-wrap: break-word;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .navbar {
+        padding: 0.85rem 1rem;
+      }
+
+      .navbar h1 {
+        font-size: 1.4rem;
+      }
+
+      .content {
+        padding: 1.25rem 0.75rem;
+      }
+
+      .tab-content-container {
+        padding: 1rem 0.75rem;
+      }
+
+      .info-card,
+      .section-box {
+        padding: 0.9rem 0.85rem;
       }
     }
   </style>
