@@ -260,6 +260,152 @@
       }
     }
 
+    /* Estilos del contenido del personaje en Principal */
+    .panel-inner-header {
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.8rem;
+      border-bottom: 1px solid var(--card-border);
+      text-align: left;
+    }
+
+    .character-name {
+      font-size: 1.85rem;
+      font-weight: 700;
+      color: var(--title-color);
+      letter-spacing: -0.5px;
+      margin: 0;
+    }
+
+    .character-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      align-items: start;
+    }
+
+    .sheet-column {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .info-card {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      background-color: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 1.1rem 1.35rem;
+      transition: background-color 0.3s ease, border-color 0.3s ease;
+    }
+
+    body.modo-manana .info-card {
+      background-color: rgba(0, 0, 0, 0.02);
+    }
+
+    .info-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      font-size: 0.96rem;
+    }
+
+    .info-label {
+      font-weight: 600;
+      color: var(--tab-inactive);
+    }
+
+    .info-value {
+      font-weight: 600;
+      color: var(--text-color);
+    }
+
+    .info-value.highlight-text {
+      color: var(--title-color);
+      font-weight: 700;
+    }
+
+    .section-box {
+      background-color: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 1.25rem 1.35rem;
+      transition: background-color 0.3s ease, border-color 0.3s ease;
+    }
+
+    body.modo-manana .section-box {
+      background-color: rgba(0, 0, 0, 0.02);
+    }
+
+    .section-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--title-color);
+      margin-bottom: 0.85rem;
+      padding-bottom: 0.4rem;
+      border-bottom: 1px solid var(--card-border);
+      letter-spacing: -0.2px;
+    }
+
+    .sheet-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.55rem;
+    }
+
+    .sheet-list li {
+      position: relative;
+      padding-left: 1.25rem;
+      line-height: 1.5;
+      font-size: 0.95rem;
+      color: var(--text-color);
+    }
+
+    .sheet-list li::before {
+      content: "•";
+      position: absolute;
+      left: 0.15rem;
+      top: -0.05rem;
+      color: var(--title-color);
+      font-size: 1.2rem;
+      line-height: 1.2;
+    }
+
+    /* Parentesco en tamaño reducido */
+    .kinship {
+      font-size: 0.82em;
+      color: var(--quote-color);
+      margin-left: 0.3rem;
+      font-weight: normal;
+      opacity: 0.9;
+    }
+
+    /* Espacios entre comillas para rellenar */
+    .quoted-blank {
+      font-family: monospace;
+      background-color: rgba(255, 255, 255, 0.05);
+      border-bottom: 1px dashed var(--tab-inactive);
+      padding: 0 0.15rem;
+      border-radius: 2px;
+      display: inline-block;
+      white-space: pre;
+    }
+
+    body.modo-manana .quoted-blank {
+      background-color: rgba(0, 0, 0, 0.04);
+    }
+
+    @media (max-width: 992px) {
+      .character-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
     /* Responsividad */
     @media (max-width: 768px) {
       .navbar {
@@ -330,7 +476,64 @@
           <div class="tab-content-container">
             <!-- Pestaña Principal (seleccionada por defecto) -->
             <div id="tab-principal" class="tab-pane active" role="tabpanel">
-              <p class="tab-placeholder">Contenido de Principal (pendiente de agregar)</p>
+              <header class="panel-inner-header">
+                <h2 class="character-name">Arthur Ravenscroft</h2>
+              </header>
+
+              <div class="character-grid">
+                <!-- Columna Izquierda: Información General y Alias -->
+                <div class="sheet-column">
+                  <!-- Datos destacados -->
+                  <div class="info-card">
+                    <div class="info-row">
+                      <span class="info-label">Edad:</span>
+                      <span class="info-value">25</span>
+                    </div>
+                    <div class="info-row">
+                      <span class="info-label">Gran Antiguo:</span>
+                      <span class="info-value highlight-text">Señor de los Misterios</span>
+                    </div>
+                  </div>
+
+                  <!-- Bloque de Alias -->
+                  <div class="section-box">
+                    <h3 class="section-title">Alias</h3>
+                    <ul class="sheet-list">
+                      <li>Archibald <span class="quoted-blank">"&nbsp;&nbsp;"</span></li>
+                      <li>Archibald <span class="quoted-blank">"&nbsp;&nbsp;"</span></li>
+                      <li>Señor de los Misterios</li>
+                      <li>El Emperador</li>
+                      <li>The Fool</li>
+                      <li>El cumplidor de deseos</li>
+                      <li>La iregularidad del mundo</li>
+                      <li>Aquel que es amado por todos</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <!-- Columna Derecha: Familia -->
+                <div class="sheet-column">
+                  <div class="section-box">
+                    <h3 class="section-title">Familia</h3>
+                    <ul class="sheet-list">
+                      <li>Victoria Ravenscroft <span class="kinship">(Esposa)</span></li>
+                      <li>Mael Ravenscroft <span class="kinship">(Hijo)</span></li>
+                      <li>Percival Ravenscroft <span class="kinship">(Hijo)</span></li>
+                      <li><span class="quoted-blank">"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"</span> Ravenscroft <span class="kinship">(Hija)</span></li>
+                      <li>Valentina Ravenscroft <span class="kinship">(Hija)</span></li>
+                      <li>Alcroft Ravenscroft <span class="kinship">(Padre)</span></li>
+                      <li>Lucy Ravenscroft <span class="kinship">(Madre)</span></li>
+                      <li>Paul <span class="quoted-blank">"&nbsp;&nbsp;"</span> <span class="kinship">(Padre)</span></li>
+                      <li>Raymon <span class="quoted-blank">"&nbsp;&nbsp;"</span> <span class="kinship">(Padre)</span></li>
+                      <li>Enma <span class="quoted-blank">"&nbsp;&nbsp;&nbsp;"</span> <span class="kinship">(Madre)</span></li>
+                      <li>Percival Ravenscroft <span class="kinship">(Hermano)</span></li>
+                      <li>Amia <span class="quoted-blank">"&nbsp;&nbsp;"</span> <span class="kinship">(Hermana)</span></li>
+                      <li>Aishia <span class="quoted-blank">"&nbsp;&nbsp;"</span> <span class="kinship">(Hermana)</span></li>
+                      <li>Rose <span class="quoted-blank">"&nbsp;&nbsp;&nbsp;&nbsp;"</span> <span class="kinship">(Hermana)</span></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
             </div>
 
             <!-- Pestaña Avatar -->
