@@ -64,6 +64,10 @@
       --tab-hover-bg: rgba(0, 0, 0, 0.03);
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     * {
       box-sizing: border-box;
       margin: 0;
@@ -197,14 +201,83 @@
       font-size: 1.15rem;
       font-weight: 700;
       color: var(--title-color);
-      margin: 0;
+      margin: 0 0 0.75rem 0;
+      padding-bottom: 0.4rem;
+      border-bottom: 1px solid var(--card-border);
       letter-spacing: -0.2px;
+    }
+
+    .toc-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .toc-link {
+      display: flex;
+      align-items: center;
+      color: var(--text-color);
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 500;
+      padding: 0.35rem 0.5rem;
+      border-radius: 6px;
+      transition: color 0.2s ease, background-color 0.2s ease, transform 0.2s ease;
+    }
+
+    .toc-link:hover {
+      color: var(--title-color);
+      background-color: var(--tab-hover-bg);
+      transform: translateX(4px);
     }
 
     /* Columna derecha: Detalles de la ficha */
     .profile-details {
       flex: 1;
       min-width: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    /* Secciones de contenido general bajo el panel interactivo */
+    .content-section {
+      background-color: var(--card-bg);
+      border: 2px solid var(--card-border);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: var(--img-shadow);
+      padding: 1.75rem 2rem;
+      scroll-margin-top: 5.5rem;
+      transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .content-section:target {
+      border-color: var(--title-color);
+      box-shadow: 0 0 0 1px var(--title-color), var(--img-shadow);
+    }
+
+    .content-section-header {
+      margin-bottom: 1.25rem;
+      padding-bottom: 0.6rem;
+      border-bottom: 1px solid var(--card-border);
+    }
+
+    .section-heading {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--title-color);
+      letter-spacing: -0.3px;
+      margin: 0;
+    }
+
+    .content-section-body {
+      color: var(--text-color);
+      line-height: 1.7;
+      font-size: 0.98rem;
     }
 
     /* Panel de información interactivo */
@@ -537,6 +610,14 @@
       .sheet-list li {
         overflow-wrap: break-word;
       }
+
+      .content-section {
+        padding: 1.25rem 1rem;
+      }
+
+      .section-heading {
+        font-size: 1.35rem;
+      }
     }
 
     @media (max-width: 480px) {
@@ -557,7 +638,8 @@
       }
 
       .info-card,
-      .section-box {
+      .section-box,
+      .content-section {
         padding: 0.9rem 0.85rem;
       }
     }
@@ -587,7 +669,11 @@
         <!-- Tabla de contenido -->
         <nav class="toc-card" aria-label="Tabla de contenido">
           <h3 class="toc-title">Contenido</h3>
-          <!-- El contenido se adaptará e irá agregando aquí -->
+          <ul class="toc-list">
+            <li>
+              <a href="#apariencia" class="toc-link">1. Apariencia</a>
+            </li>
+          </ul>
         </nav>
       </aside>
 
@@ -732,6 +818,16 @@
             </div>
           </div>
         </div>
+
+        <!-- Sección Apariencia -->
+        <article id="apariencia" class="content-section">
+          <header class="content-section-header">
+            <h2 class="section-heading">Apariencia</h2>
+          </header>
+          <div class="content-section-body">
+            <p class="tab-placeholder">Contenido de Apariencia (pendiente de agregar)</p>
+          </div>
+        </article>
       </section>
     </div>
   </main>
