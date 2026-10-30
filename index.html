@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,40 +8,58 @@
   <style>
     :root {
       /* Modo Noche (por defecto) */
-      --bg-color: #0b0f19;          /* Fondo oscuro profundo */
-      --text-color: #f8fafc;        /* Texto claro */
-      --title-color: #38bdf8;       /* Azul cielo para el título */
-      --nav-bg: #1e293b;            /* Navbar pizarra distintiva que resalta */
-      --nav-border: #334155;        /* Borde divisorio visible */
+      --bg-color: #0b0f19;
+      /* Fondo oscuro profundo */
+      --text-color: #f8fafc;
+      /* Texto claro */
+      --title-color: #38bdf8;
+      /* Azul cielo para el título */
+      --nav-bg: #1e293b;
+      /* Navbar pizarra distintiva que resalta */
+      --nav-border: #334155;
+      /* Borde divisorio visible */
       --nav-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
-      --btn-bg: #334155;            /* Fondo del botón */
+      --btn-bg: #334155;
+      /* Fondo del botón */
       --btn-hover: #475569;
       --btn-border: #475569;
-      --card-bg: #1e293b;           /* Fondo de tarjetas */
-      --card-border: #334155;       /* Borde para contenedores */
+      --card-bg: #1e293b;
+      /* Fondo de tarjetas */
+      --card-border: #334155;
+      /* Borde para contenedores */
       --img-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
-      --quote-color: #cbd5e1;       /* Color de la frase en modo noche */
-      --tab-inactive: #94a3b8;      /* Pestaña inactiva noche */
+      --quote-color: #cbd5e1;
+      /* Color de la frase en modo noche */
+      --tab-inactive: #94a3b8;
+      /* Pestaña inactiva noche */
       --tab-active-bg: rgba(56, 189, 248, 0.08);
       --tab-hover-bg: rgba(255, 255, 255, 0.04);
     }
 
     /* Modo Mañana (Claro) */
     body.modo-manana {
-      --bg-color: #f1f5f9;          /* Fondo suave claro */
-      --text-color: #0f172a;        /* Texto oscuro */
-      --title-color: #0284c7;       /* Azul diurno para el título */
-      --nav-bg: #ffffff;            /* Navbar blanco puro para contraste claro */
-      --nav-border: #cbd5e1;        /* Borde gris definido */
+      --bg-color: #f1f5f9;
+      /* Fondo suave claro */
+      --text-color: #0f172a;
+      /* Texto oscuro */
+      --title-color: #0284c7;
+      /* Azul diurno para el título */
+      --nav-bg: #ffffff;
+      /* Navbar blanco puro para contraste claro */
+      --nav-border: #cbd5e1;
+      /* Borde gris definido */
       --nav-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
-      --btn-bg: #e2e8f0;            /* Fondo del botón claro */
+      --btn-bg: #e2e8f0;
+      /* Fondo del botón claro */
       --btn-hover: #cbd5e1;
       --btn-border: #cbd5e1;
       --card-bg: #ffffff;
       --card-border: #cbd5e1;
       --img-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-      --quote-color: #475569;       /* Color de la frase en modo mañana */
-      --tab-inactive: #64748b;      /* Pestaña inactiva mañana */
+      --quote-color: #475569;
+      /* Color de la frase en modo mañana */
+      --tab-inactive: #64748b;
+      /* Pestaña inactiva mañana */
       --tab-active-bg: rgba(2, 132, 199, 0.08);
       --tab-hover-bg: rgba(0, 0, 0, 0.03);
     }
@@ -257,6 +276,7 @@
         opacity: 0;
         transform: translateY(4px);
       }
+
       to {
         opacity: 1;
         transform: translateY(0);
@@ -524,6 +544,7 @@
     }
   </style>
 </head>
+
 <body>
 
   <!-- Barra de navegación superior -->
@@ -585,14 +606,14 @@
                   <div class="section-box">
                     <h3 class="section-title">Alias</h3>
                     <ul class="sheet-list">
-                      <li>Archibald <span class="quoted-blank">"&nbsp;&nbsp;"</span></li>
-                      <li>Archibald <span class="quoted-blank">"&nbsp;&nbsp;"</span></li>
+                      <li>Archibald Howard</li>
+                      <li>Archibald Barnard</li>
                       <li>Señor de los Misterios</li>
                       <li>El Emperador</li>
                       <li>The Fool</li>
-                      <li>El cumplidor de deseos</li>
-                      <li>La iregularidad del mundo</li>
-                      <li>Aquel que es amado por todos</li>
+                      <li>El Concededor de Deseos</li>
+                      <li>La Iregularidad del Mundo</li>
+                      <li>Aquel Que Es Amado Por Todos</li>
                     </ul>
                   </div>
                 </div>
@@ -605,17 +626,25 @@
                       <li>Victoria Ravenscroft <span class="kinship">(Esposa)</span></li>
                       <li>Mael Ravenscroft <span class="kinship">(Hijo)</span></li>
                       <li>Percival Ravenscroft <span class="kinship">(Hijo)</span></li>
-                      <li><span class="quoted-blank">"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"</span> Ravenscroft <span class="kinship">(Hija)</span></li>
+                      <li><span
+                          class="quoted-blank">"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"</span>
+                        Ravenscroft <span class="kinship">(Hija)</span></li>
                       <li>Valentina Ravenscroft <span class="kinship">(Hija)</span></li>
                       <li>Alcroft Ravenscroft <span class="kinship">(Padre)</span></li>
                       <li>Lucy Ravenscroft <span class="kinship">(Madre)</span></li>
-                      <li>Paul <span class="quoted-blank">"&nbsp;&nbsp;"</span> <span class="kinship">(Padre)</span></li>
-                      <li>Raymon <span class="quoted-blank">"&nbsp;&nbsp;"</span> <span class="kinship">(Padre)</span></li>
-                      <li>Enma <span class="quoted-blank">"&nbsp;&nbsp;&nbsp;"</span> <span class="kinship">(Madre)</span></li>
+                      <li>Paul <span class="quoted-blank">"&nbsp;&nbsp;"</span> <span class="kinship">(Padre)</span>
+                      </li>
+                      <li>Raymon <span class="quoted-blank">"&nbsp;&nbsp;"</span> <span class="kinship">(Padre)</span>
+                      </li>
+                      <li>Enma <span class="quoted-blank">"&nbsp;&nbsp;&nbsp;"</span> <span
+                          class="kinship">(Madre)</span></li>
                       <li>Percival Ravenscroft <span class="kinship">(Hermano)</span></li>
-                      <li>Amia <span class="quoted-blank">"&nbsp;&nbsp;"</span> <span class="kinship">(Hermana)</span></li>
-                      <li>Aishia <span class="quoted-blank">"&nbsp;&nbsp;"</span> <span class="kinship">(Hermana)</span></li>
-                      <li>Rose <span class="quoted-blank">"&nbsp;&nbsp;&nbsp;&nbsp;"</span> <span class="kinship">(Hermana)</span></li>
+                      <li>Amia <span class="quoted-blank">"&nbsp;&nbsp;"</span> <span class="kinship">(Hermana)</span>
+                      </li>
+                      <li>Aishia <span class="quoted-blank">"&nbsp;&nbsp;"</span> <span class="kinship">(Hermana)</span>
+                      </li>
+                      <li>Rose <span class="quoted-blank">"&nbsp;&nbsp;&nbsp;&nbsp;"</span> <span
+                          class="kinship">(Hermana)</span></li>
                     </ul>
                   </div>
                 </div>
@@ -647,14 +676,14 @@
                   <div class="section-box">
                     <h3 class="section-title">Alias</h3>
                     <ul class="sheet-list">
-                      <li>Archibald <span class="quoted-blank">"&nbsp;&nbsp;"</span></li>
-                      <li>Archibald <span class="quoted-blank">"&nbsp;&nbsp;"</span></li>
-                      <li>El hijo del Sol</li>
-                      <li>La reencarnación del Sol</li>
+                      <li>Archibald Howard</li>
+                      <li>Archibald Barnard</li>
+                      <li>El Hijo del Sol</li>
+                      <li>La Reencarnación del Sol</li>
                       <li>El Emperador</li>
                       <li>The Lovers</li>
-                      <li>El cumplidor de deseos</li>
-                      <li>Aquel que es amado por todos</li>
+                      <li>El Concededor de Deseos</li>
+                      <li>Aquel Que Es Amado Por Todos</li>
                     </ul>
                   </div>
                 </div>
@@ -670,13 +699,19 @@
                       <li>Valmont Ravenscroft <span class="kinship">(Hijo)</span></li>
                       <li>Alcroft Ravenscroft <span class="kinship">(Padre)</span></li>
                       <li>Lucy Ravenscroft <span class="kinship">(Madre)</span></li>
-                      <li>Paul <span class="quoted-blank">"&nbsp;&nbsp;"</span> <span class="kinship">(Padre)</span></li>
-                      <li>Raymon <span class="quoted-blank">"&nbsp;&nbsp;"</span> <span class="kinship">(Padre)</span></li>
-                      <li>Enma <span class="quoted-blank">"&nbsp;&nbsp;&nbsp;"</span> <span class="kinship">(Madre)</span></li>
+                      <li>Paul <span class="quoted-blank">"&nbsp;&nbsp;"</span> <span class="kinship">(Padre)</span>
+                      </li>
+                      <li>Raymon <span class="quoted-blank">"&nbsp;&nbsp;"</span> <span class="kinship">(Padre)</span>
+                      </li>
+                      <li>Enma <span class="quoted-blank">"&nbsp;&nbsp;&nbsp;"</span> <span
+                          class="kinship">(Madre)</span></li>
                       <li>Percival Ravenscroft <span class="kinship">(Hermano)</span></li>
-                      <li>Amia <span class="quoted-blank">"&nbsp;&nbsp;"</span> <span class="kinship">(Hermana)</span></li>
-                      <li>Aishia <span class="quoted-blank">"&nbsp;&nbsp;"</span> <span class="kinship">(Hermana)</span></li>
-                      <li>Rose <span class="quoted-blank">"&nbsp;&nbsp;&nbsp;&nbsp;"</span> <span class="kinship">(Hermana)</span></li>
+                      <li>Amia <span class="quoted-blank">"&nbsp;&nbsp;"</span> <span class="kinship">(Hermana)</span>
+                      </li>
+                      <li>Aishia <span class="quoted-blank">"&nbsp;&nbsp;"</span> <span class="kinship">(Hermana)</span>
+                      </li>
+                      <li>Rose <span class="quoted-blank">"&nbsp;&nbsp;&nbsp;&nbsp;"</span> <span
+                          class="kinship">(Hermana)</span></li>
                     </ul>
                   </div>
                 </div>
@@ -736,4 +771,5 @@
   </script>
 
 </body>
+
 </html>
