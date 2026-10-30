@@ -182,6 +182,25 @@
       transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
     }
 
+    /* Tabla de contenido en la columna izquierda */
+    .toc-card {
+      margin-top: 1.25rem;
+      background-color: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 14px;
+      padding: 1.1rem 1.25rem;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+      transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .toc-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--title-color);
+      margin: 0;
+      letter-spacing: -0.2px;
+    }
+
     /* Columna derecha: Detalles de la ficha */
     .profile-details {
       flex: 1;
@@ -556,7 +575,7 @@
   <!-- Contenedor para el contenido de la página -->
   <main class="content">
     <div class="profile-layout">
-      <!-- Columna izquierda: Imagen y frase de Arthur -->
+      <!-- Columna izquierda: Imagen, frase y tabla de contenido de Arthur -->
       <aside class="profile-sidebar">
         <div class="profile-image-card">
           <img src="Arthur.jfif" alt="Arthur Ravenscroft">
@@ -564,6 +583,12 @@
         <blockquote class="character-quote">
           “Mientras más conocimiento obtengo, más profundo y temible se vuelve mi miedo a lo desconocido.”
         </blockquote>
+
+        <!-- Tabla de contenido -->
+        <nav class="toc-card" aria-label="Tabla de contenido">
+          <h3 class="toc-title">Contenido</h3>
+          <!-- El contenido se adaptará e irá agregando aquí -->
+        </nav>
       </aside>
 
       <!-- Columna derecha: Panel interactivo -->
