@@ -234,6 +234,27 @@
       transform: translateX(4px);
     }
 
+    /* Sublistas de la tabla de contenido */
+    .toc-sublist {
+      list-style: none;
+      padding-left: 0.75rem;
+      margin: 0.2rem 0 0.25rem 0.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+      border-left: 2px solid var(--card-border);
+    }
+
+    .toc-sublist .toc-link {
+      font-size: 0.88rem;
+      color: var(--tab-inactive);
+      padding: 0.25rem 0.45rem;
+    }
+
+    .toc-sublist .toc-link:hover {
+      color: var(--title-color);
+    }
+
     /* Columna derecha: Detalles de la ficha */
     .profile-details {
       flex: 1;
@@ -278,6 +299,29 @@
       color: var(--text-color);
       line-height: 1.7;
       font-size: 0.98rem;
+    }
+
+    /* Subsecciones dentro de las tarjetas */
+    .content-subsection {
+      margin-top: 1.5rem;
+      padding-top: 1.25rem;
+      border-top: 1px dashed var(--card-border);
+      scroll-margin-top: 5.5rem;
+      transition: background-color 0.25s ease, padding 0.25s ease;
+    }
+
+    .content-subsection:target {
+      background-color: var(--tab-hover-bg);
+      border-radius: 8px;
+      padding: 1.25rem 0.75rem;
+    }
+
+    .subsection-heading {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--title-color);
+      margin-bottom: 0.75rem;
+      letter-spacing: -0.2px;
     }
 
     /* Panel de información interactivo */
@@ -700,6 +744,34 @@
             <li>
               <a href="#apariencia" class="toc-link">1. Apariencia</a>
             </li>
+            <li>
+              <a href="#personalidad" class="toc-link">2. Personalidad</a>
+              <ul class="toc-sublist">
+                <li>
+                  <a href="#otras-identidades" class="toc-link">2.1 Otras identidades</a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="#relaciones" class="toc-link">3. Relaciones</a>
+            </li>
+            <li>
+              <a href="#nombres-honorificos" class="toc-link">4. Nombres honoríficos</a>
+              <ul class="toc-sublist">
+                <li>
+                  <a href="#the-fool" class="toc-link">4.1 The Fool</a>
+                </li>
+                <li>
+                  <a href="#kalvetua" class="toc-link">4.2 Dios del Mar Kalvetua</a>
+                </li>
+                <li>
+                  <a href="#arthur-honorifico" class="toc-link">4.3 Arthur Ravenscroft</a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="#trivialidades" class="toc-link">5. Trivialidades</a>
+            </li>
           </ul>
         </nav>
       </aside>
@@ -854,13 +926,77 @@
           </div>
         </div>
 
-        <!-- Sección Apariencia -->
+        <!-- Sección 1: Apariencia -->
         <article id="apariencia" class="content-section">
           <header class="content-section-header">
-            <h2 class="section-heading">Apariencia</h2>
+            <h2 class="section-heading">1. Apariencia</h2>
           </header>
           <div class="content-section-body">
             <p class="tab-placeholder">Contenido de Apariencia (pendiente de agregar)</p>
+          </div>
+        </article>
+
+        <!-- Sección 2: Personalidad -->
+        <article id="personalidad" class="content-section">
+          <header class="content-section-header">
+            <h2 class="section-heading">2. Personalidad</h2>
+          </header>
+          <div class="content-section-body">
+            <p class="tab-placeholder">Contenido de Personalidad (pendiente de agregar)</p>
+
+            <!-- Subsección 2.1: Otras identidades -->
+            <div id="otras-identidades" class="content-subsection">
+              <h3 class="subsection-heading">2.1 Otras identidades</h3>
+              <p class="tab-placeholder">Contenido de Otras identidades (pendiente de agregar)</p>
+            </div>
+          </div>
+        </article>
+
+        <!-- Sección 3: Relaciones -->
+        <article id="relaciones" class="content-section">
+          <header class="content-section-header">
+            <h2 class="section-heading">3. Relaciones</h2>
+          </header>
+          <div class="content-section-body">
+            <p class="tab-placeholder">Contenido de Relaciones (pendiente de agregar)</p>
+          </div>
+        </article>
+
+        <!-- Sección 4: Nombres honoríficos -->
+        <article id="nombres-honorificos" class="content-section">
+          <header class="content-section-header">
+            <h2 class="section-heading">4. Nombres honoríficos</h2>
+          </header>
+          <div class="content-section-body">
+            <p class="tab-placeholder">Contenido de Nombres honoríficos (pendiente de agregar)</p>
+
+            <!-- Subsección 4.1: The Fool -->
+            <div id="the-fool" class="content-subsection">
+              <h3 class="subsection-heading">4.1 The Fool</h3>
+              <p class="tab-placeholder">Contenido de The Fool (pendiente de agregar)</p>
+            </div>
+
+            <!-- Subsección 4.2: Dios del Mar Kalvetua -->
+            <div id="kalvetua" class="content-subsection">
+              <h3 class="subsection-heading">4.2 Dios del Mar Kalvetua</h3>
+              <p class="tab-placeholder">Contenido de Dios del Mar Kalvetua (pendiente de agregar)</p>
+            </div>
+
+            <!-- Subsección 4.3: Arthur Ravenscroft -->
+            <div id="arthur-honorifico" class="content-subsection">
+              <h3 class="subsection-heading">4.3 Arthur Ravenscroft</h3>
+              <p class="tab-placeholder">Contenido de Arthur Ravenscroft (pendiente de agregar)</p>
+            </div>
+          </div>
+        </article>
+
+        <!-- Sección 5: Trivialidades -->
+        <article id="trivialidades" class="content-section">
+          <header class="content-section-header">
+            <h2 class="section-heading">5. Trivialidades</h2>
+          </header>
+          <div class="content-section-body">
+            <p class="tab-placeholder">Contenido de Trivialidades (pendiente de agregar)</p>
           </div>
         </article>
       </section>
