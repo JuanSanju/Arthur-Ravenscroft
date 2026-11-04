@@ -139,17 +139,23 @@
       z-index: 1;
     }
 
-    /* Distribución de la ficha */
+    /* Distribución de la ficha con elementos flotantes */
     .profile-layout {
-      display: flex;
-      gap: 2.5rem;
-      align-items: flex-start;
+      display: block;
     }
 
-    /* Columna izquierda: Imagen de perfil */
+    .profile-layout::after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+
+    /* Elemento flotante de la izquierda: Retrato, frase y contenido */
     .profile-sidebar {
-      flex: 0 0 300px;
-      width: 300px;
+      float: left;
+      width: clamp(280px, 28%, 320px);
+      max-width: 100%;
+      margin: 0 2.5rem 2rem 0;
     }
 
     .profile-image-card {
@@ -255,53 +261,77 @@
       color: var(--title-color);
     }
 
-    /* Columna derecha: Detalles de la ficha */
+    /* Contenido de la derecha y secciones fluidas */
     .profile-details {
-      flex: 1;
-      min-width: 0;
-      display: flex;
-      flex-direction: column;
-      gap: 2rem;
+      display: block;
     }
 
-    /* Secciones de contenido general bajo el panel interactivo */
+    /* Secciones de contenido general de Arthur Ravenscroft */
     .content-section {
-      background-color: var(--card-bg);
-      border: 2px solid var(--card-border);
-      border-radius: 16px;
-      overflow: hidden;
-      box-shadow: var(--img-shadow);
-      padding: 1.75rem 2rem;
+      margin-top: 2.5rem;
       scroll-margin-top: 5.5rem;
-      transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+      clear: right;
     }
 
-    .content-section:target {
-      border-color: var(--title-color);
-      box-shadow: 0 0 0 1px var(--title-color), var(--img-shadow);
+    .content-section::after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+
+    .content-section:target .content-section-header {
+      border-bottom-color: var(--title-color);
+    }
+
+    .content-section:target .section-heading {
+      color: var(--title-color);
+      text-shadow: 0 0 10px rgba(56, 189, 248, 0.3);
     }
 
     .content-section-header {
       margin-bottom: 1.25rem;
       padding-bottom: 0.6rem;
-      border-bottom: 1px solid var(--card-border);
+      border-bottom: 2px solid var(--card-border);
+      transition: border-color 0.3s ease;
     }
 
     .section-heading {
-      font-size: 1.5rem;
+      font-size: 1.55rem;
       font-weight: 700;
       color: var(--title-color);
       letter-spacing: -0.3px;
       margin: 0;
+      transition: color 0.3s ease;
     }
 
     .content-section-body {
       color: var(--text-color);
-      line-height: 1.7;
-      font-size: 0.98rem;
+      line-height: 1.8;
+      font-size: 1.02rem;
     }
 
-    /* Subsecciones dentro de las tarjetas */
+    /* Elementos flotantes adaptables con márgenes adecuados */
+    .float-left,
+    .element-floating-left {
+      float: left;
+      width: clamp(220px, 30%, 320px);
+      max-width: 100%;
+      margin: 0.4rem 1.75rem 1.25rem 0;
+      border-radius: 14px;
+      transition: all 0.3s ease;
+    }
+
+    .float-left img,
+    .element-floating-left img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 12px;
+      border: 1px solid var(--card-border);
+      box-shadow: var(--img-shadow);
+    }
+
+    /* Subsecciones dentro de las secciones */
     .content-subsection {
       margin-top: 1.5rem;
       padding-top: 1.25rem;
@@ -332,8 +362,8 @@
       overflow: hidden;
       box-shadow: var(--img-shadow);
       min-height: 480px;
-      display: flex;
-      flex-direction: column;
+      display: flow-root;
+      margin-bottom: 2.5rem;
       transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
     }
 
@@ -628,7 +658,16 @@
       .content-section {
         order: 5;
         width: 100%;
-        padding: 1.25rem 1rem;
+        margin-top: 1.5rem;
+      }
+
+      .float-left,
+      .element-floating-left {
+        float: none;
+        width: 100%;
+        max-width: 320px;
+        margin: 0 auto 1.25rem auto;
+        display: block;
       }
 
       .tab-content-container {
@@ -709,7 +748,6 @@
 
       .info-card,
       .section-box,
-      .content-section,
       .toc-card {
         padding: 0.9rem 0.85rem;
       }
