@@ -349,6 +349,61 @@
       margin-bottom: 0;
     }
 
+    /* Mini-tabs de navegación interna (ej. Personalidad: Principal / Avatar) */
+    .personality-tabs {
+      display: flex;
+      gap: 0.15rem;
+      margin-top: 0.75rem;
+      border-bottom: none;
+    }
+
+    .personality-tab {
+      padding: 0.35rem 1rem;
+      background: none;
+      border: 1px solid transparent;
+      border-bottom: none;
+      border-radius: 6px 6px 0 0;
+      font-size: 0.88rem;
+      font-weight: 600;
+      font-family: inherit;
+      color: var(--tab-inactive);
+      cursor: pointer;
+      position: relative;
+      transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+    }
+
+    .personality-tab:hover {
+      color: var(--text-color);
+      background-color: var(--tab-hover-bg);
+    }
+
+    .personality-tab.active {
+      color: var(--title-color);
+      background-color: var(--tab-active-bg);
+      border-color: var(--card-border);
+      border-bottom-color: transparent;
+    }
+
+    .personality-tab.active::after {
+      content: '';
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background-color: var(--title-color);
+      border-radius: 2px 2px 0 0;
+    }
+
+    /* Paneles de contenido de personalidad */
+    .personality-panel {
+      animation: fadeIn 0.25s ease;
+    }
+
+    .personality-panel[hidden] {
+      display: none;
+    }
+
     /* Elementos flotantes adaptables con márgenes adecuados */
     .float-left,
     .element-floating-left {
@@ -1059,15 +1114,32 @@
         <article id="personalidad" class="content-section">
           <header class="content-section-header">
             <h2 class="section-heading">2. Personalidad</h2>
+            <!-- Navegación interna: Principal / Avatar -->
+            <nav class="personality-tabs" role="tablist">
+              <button class="personality-tab active" role="tab" aria-selected="true"
+                data-target="personalidad-principal">Principal</button>
+              <button class="personality-tab" role="tab" aria-selected="false"
+                data-target="personalidad-avatar">Avatar</button>
+            </nav>
           </header>
           <div class="content-section-body">
-            <p class="tab-placeholder">Contenido de Personalidad (pendiente de agregar)</p>
 
-            <!-- Subsección 2.1: Otras identidades -->
-            <div id="otras-identidades" class="content-subsection">
-              <h3 class="subsection-heading">2.1 Otras identidades</h3>
-              <p class="tab-placeholder">Contenido de Otras identidades (pendiente de agregar)</p>
+            <!-- Panel: Principal -->
+            <div id="personalidad-principal" class="personality-panel active">
+              <p class="tab-placeholder">Contenido de Personalidad (pendiente de agregar)</p>
+
+              <!-- Subsección 2.1: Otras identidades -->
+              <div id="otras-identidades" class="content-subsection">
+                <h3 class="subsection-heading">2.1 Otras identidades</h3>
+                <p class="tab-placeholder">Contenido de Otras identidades (pendiente de agregar)</p>
+              </div>
             </div>
+
+            <!-- Panel: Avatar -->
+            <div id="personalidad-avatar" class="personality-panel" hidden>
+              <p class="tab-placeholder">Contenido de Avatar (pendiente de agregar)</p>
+            </div>
+
           </div>
         </article>
 
@@ -1141,7 +1213,7 @@
       }
     });
 
-    // Cambio interactivo entre pestañas (Principal / Avatar)
+    // Cambio interactivo entre pestañas (Principal / Avatar) — ficha principal
     const tabBtns = document.querySelectorAll('.tab-btn');
     const tabPanes = document.querySelectorAll('.tab-pane');
 
@@ -1163,6 +1235,32 @@
             pane.classList.add('active');
           } else {
             pane.classList.remove('active');
+          }
+        });
+      });
+    });
+
+    // Mini-tabs de Personalidad: Principal / Avatar
+    const personalityTabs = document.querySelectorAll('.personality-tab');
+
+    personalityTabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        const targetId = tab.getAttribute('data-target');
+
+        // Actualizar botones
+        personalityTabs.forEach(t => {
+          t.classList.remove('active');
+          t.setAttribute('aria-selected', 'false');
+        });
+        tab.classList.add('active');
+        tab.setAttribute('aria-selected', 'true');
+
+        // Mostrar / ocultar paneles
+        document.querySelectorAll('.personality-panel').forEach(panel => {
+          if (panel.id === targetId) {
+            panel.removeAttribute('hidden');
+          } else {
+            panel.setAttribute('hidden', '');
           }
         });
       });
